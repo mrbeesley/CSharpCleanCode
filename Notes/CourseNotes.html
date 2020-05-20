@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+
+<h1>Clean Architecture: Patterns Practices and Principles</h1>
+
+<hr />
+<h3>Clean Architecture</h3>
+<ul>
+  <li>What is Clean Architecutre?</li>
+  <ul>
+    <li>
+      Architecute that is designed for the inhabitants of the architecture, not
+      for the architect or the machine.
+    </li>
+    <li>
+      inhabitants = [Users of System, Developers building system, developers
+      maintaining the system]
+    </li>
+    <li>Avoid Pre-mature optimization</li>
+  </0ul>
+  <li>Why invest in clean architecture?</li>
+  <ul>
+    <li>Focus on the essential</li>
+    <li>Build only what is necessary</li>
+    <li>Optimize for Maintainability</li>
+  </ul>
+</ul>
+
+<hr />
+<h3>Domain-Centric Architecture</h3>
+<ul>
+    <li>What is Domain-Centric Architecture?</li>
+    <ul>
+        <li>Domain is at the center of the architecture, not the database</li>
+        <li>The first concern of the architect is to make sure that the house is usable, it is not to ensure that the house is made of brick - Unlce Bob</li>
+        <li>essential vs detail (house example)</li>
+        <ul>
+            <li>Space is essential</li>
+            <li>Usability is essential</li>
+            <li>Buildng material is a detail</li>
+            <li>Ornamentation is a detail</li>
+        </ul>
+        <li>Essential vs Detail (Domain)</li>
+        <ul>
+            <li>Domain is essential</li>
+            <li>Use cases are eseential</li>
+            <li>Presentation is a detail</li>
+            <li>Persistence is a detail</li>
+        </ul>
+    </ul>
+    <li>Pros & Cons</li>
+    <ul>
+        <li>Pros</li>
+        <ul>
+            <li>Focus on Domain</li>
+            <li>Less Coupling</li>
+            <li>Allows for DDD</li>
+        </ul>
+        <li>Cons</li>
+        <ul>
+            <li>Change is difficult - entry engineers don't come out with of school with this knowledge</li>
+            <li>Requires more thought up-front to get the domains right</li>
+            <li>Higher initial cost to get setup</li>
+        </ul>
+    </ul>
+</ul>
+
+
+<hr />
+<h3>Application Layer</h3>
+<ul>
+  <li>See demo code for examples</li>
+  <li>this is a seperate project that contains all of your application logic for working with the domain models</li>
+</ul>
+
+<hr />
+<h3>Commands and Queries</h3>
+<ul>
+  <li><b>Command</b></li>
+  <ul>
+    <li>a command does something</li>
+    <li>a command should modify state</li>
+    <li>a command should NOT return a value</li>
+  </ul>
+  <li><b>Query</b></li>
+  <ul>
+    <li>a query answers a question</li>
+    <li>a query should not modify state</li>`
+    <li>a query should return a value</li>
+  </ul>
+  <li><b>CQRS</b></li>
+  <ul>
+    <li>Pros</li>
+    <ul>
+      <li>More efficient design</li>
+      <li>Optimized performance</li>
+      <li>Event sourcing benefits</li>
+    </ul>
+    <li>Cons</li>
+    <ul>
+      <li>data can be inconsistent between read and writes</li>
+      <li>More complex design</li>
+      <li>event sourcing has downsides if you don't need the extra features</li>
+    </ul>
+  </ul>
+</ul>
+
+
+<hr />
+<h3>Functional Organization</h3>
+<ul>
+  <li><b>Screaming Architecture</b></li>
+  <ul>
+    <li>The architecture should scream the intent of the system</li>
+    <li>Organized based on components of a system vs functions of a system</li>
+  </ul>
+  <li><b>Functional vs Categorical</b></li>
+  <ul>
+    <li>Models -- Views -- Controllers</li>
+    <li>Customers -- Products -- Vendors</li>
+  </ul>
+  <li><b>Pros & Cons</b></li>
+  <li>Pros</li>
+  <ul>
+    <li>Spatial Locality</li>
+    <li>Easy to Navigate</li>
+    <li>Avoid Vendor lock-in</li>
+  </ul>
+  <li>Cons</li>
+  <ul>
+    <li>Lose framework conventions</li>
+    <li>lose automatic scaffolding</li>
+    <li>categorical is easier at first</li>
+  </ul>
+</ul>
+
+<hr />
+<h3>Microservices</h3>
+<ul>
+  <li><b>What are they?</b></li>
+  <ul>
+    <li>Bounded Context</li>
+    <li>Cohesion/Coupling</li>
+    <li>Single Domain of knowledge</li>
+    <li>Consistend data model (within bounded context)</li>
+    <li>Independence</li>
+  </ul>
+  <li><b>Pros</b></li>
+  <ul>
+    <li>Flatter Cost Curve</li>
+    <li>Creates a system with high cohesion/low coupling</li>
+    <li>Independence between teams</li>
+  </ul>
+  <li><b>Cons</b></li>
+  <ul>
+    <li>Higher up-front cost</li>
+    <li>Conway's Law - architecture and org culture need to align</li>
+    <li>Building distributed systems has overhead, and comes with costs</li>
+  </ul>
+</ul>
+
+<hr />
+<h3>Testable Architecture</h3>
+<ul>
+  <li><b>Test-Driven Development</b></li>
+  <ul>
+    <li>Red -> Green -> Refactor</li>
+    <li>Create a failing test</li>
+    <li>Get the test to pass</li>
+    <li>Refactor to make it better...Repeat</li>
+    <li><i>Why use it?</i></li>
+    <ul>
+      <li>Comprehensive suite of tests</li>
+      <li>Drives testable design</li>
+      <li>Creates more maintainable code</li>
+      <li>improves confidence in the code</li>
+    </ul>
+    <li><b>Types of Tests</b></li>
+    <ul>
+      <li>Unit -- integration -- component -- service -- UI</li>
+      <li>Functional -- accpetance -- smoke -- exploratory</li>
+      <li>automated -- manual -- semiautomated</li>
+    </ul>
+  </ul>
+
+</ul>
+<hr />
+<h3>Evolving the Architecture</h3>
